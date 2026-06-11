@@ -474,8 +474,8 @@ section:first-of-type { border-top: 0; }
             </div>
           </div>
 
-          <!-- Twitter — link card (timeline will load once HTTPS cert is active) -->
-          <div class="embed-block link-card">
+          <!-- Twitter — live timeline embed -->
+          <div class="embed-block" style="overflow:hidden;">
             <div class="embed-head">
               <span class="embed-icon tw" aria-hidden="true">X</span>
               <div>
@@ -484,8 +484,14 @@ section:first-of-type { border-top: 0; }
               </div>
               <a class="embed-follow tw" href="https://x.com/SherriedeK" rel="noopener" target="_blank">Follow</a>
             </div>
-            <p>Threads, commentary, and quick takes on the issues that matter to Britain.</p>
-            <a class="follow-link" href="https://x.com/SherriedeK" style="background:#000;" rel="noopener" target="_blank">Follow on X ↗</a>
+            <a class="twitter-timeline"
+               data-height="460"
+               data-theme="light"
+               data-chrome="noheader nofooter noborders"
+               href="https://twitter.com/SherriedeK">
+              Tweets by @SherriedeK
+            </a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           </div>
 
         </div>
