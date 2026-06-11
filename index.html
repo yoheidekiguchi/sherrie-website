@@ -243,12 +243,34 @@ p { margin:0 0 1em; }
   background:#fafaf9;
   border:1px dashed var(--line);
   border-radius:8px;
-  padding:24px 16px;
-  text-align:center;
-  color:#bbb; font-size:.85rem;
-  line-height:1.6;
+  overflow:hidden;
+  min-height:180px;
 }
-.feed-embed strong { display:block; color:#999; margin-bottom:4px; }
+/* live embed containers */
+.fb-embed { width:100%; }
+.tw-embed { width:100%; }
+/* link cards for Instagram / YouTube */
+.feed-link-card {
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  padding:28px 16px; text-align:center;
+  gap:10px; min-height:180px;
+}
+.feed-link-card .platform-icon {
+  width:48px; height:48px; border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.2rem; font-weight:900; color:#fff;
+}
+.feed-link-card .platform-icon.ig { background:linear-gradient(135deg,#f09433,#dc2743); }
+.feed-link-card .platform-icon.yt { background:#ff0000; }
+.feed-link-card p { font-size:.85rem; color:var(--muted); margin:0; }
+.feed-link-card .open-link {
+  display:inline-flex; align-items:center; gap:6px;
+  padding:8px 18px; border-radius:999px;
+  font-size:.85rem; font-weight:700; color:#fff;
+  text-decoration:none; min-height:36px;
+}
+.feed-link-card .open-link:hover { opacity:.88; text-decoration:none; }
 .feed-pair { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
 @media(max-width:500px){ .feed-pair { grid-template-columns:1fr; } }
 
@@ -380,7 +402,7 @@ p { margin:0 0 1em; }
 
       <div class="feeds">
 
-        <!-- Facebook full width -->
+        <!-- Facebook — live Page Plugin -->
         <div class="feed-block">
           <div class="feed-head">
             <span class="feed-dot fb" aria-hidden="true">f</span>
@@ -390,30 +412,47 @@ p { margin:0 0 1em; }
             </div>
             <a href="https://www.facebook.com/profile.php?id=883706581482868" class="feed-follow fb" rel="noopener" target="_blank">Follow</a>
           </div>
-          <div class="feed-embed">
-            <strong>Facebook feed</strong>
-            Latest posts from Sherrie's page appear here
+          <div class="feed-embed fb-embed">
+            <div id="fb-root"></div>
+            <div class="fb-page"
+              data-href="https://www.facebook.com/profile.php?id=883706581482868"
+              data-tabs="timeline"
+              data-width=""
+              data-height="480"
+              data-small-header="true"
+              data-adapt-container-width="true"
+              data-hide-cover="false"
+              data-show-facepile="false">
+              <blockquote cite="https://www.facebook.com/profile.php?id=883706581482868" class="fb-xfbml-parse-ignore">
+                <a href="https://www.facebook.com/profile.php?id=883706581482868">Sherrie De Kiguchi on Facebook</a>
+              </blockquote>
+            </div>
           </div>
         </div>
 
         <!-- Instagram + Twitter side by side -->
         <div class="feed-pair">
 
+          <!-- Instagram — link card (live feed requires Behold.so/Curator.io setup) -->
           <div class="feed-block">
             <div class="feed-head">
               <span class="feed-dot ig" aria-hidden="true">IG</span>
               <div class="feed-info">
                 <strong>Instagram</strong>
-                <span>@sherriedekiguchi</span>
+                <span>152 followers</span>
               </div>
               <a href="https://www.instagram.com/sherriedekiguchi/" class="feed-follow ig" rel="noopener" target="_blank">Follow</a>
             </div>
             <div class="feed-embed">
-              <strong>Instagram</strong>
-              Latest photos &amp; reels
+              <div class="feed-link-card">
+                <span class="platform-icon ig" aria-hidden="true">IG</span>
+                <p>Photos &amp; reels from the campaign trail</p>
+                <a href="https://www.instagram.com/sherriedekiguchi/" class="open-link" style="background:#e1306c;" rel="noopener" target="_blank">Open Instagram ↗</a>
+              </div>
             </div>
           </div>
 
+          <!-- Twitter / X — live Timeline widget -->
           <div class="feed-block">
             <div class="feed-head">
               <span class="feed-dot tw" aria-hidden="true">X</span>
@@ -423,15 +462,21 @@ p { margin:0 0 1em; }
               </div>
               <a href="https://x.com/SherriedeK" class="feed-follow tw" rel="noopener" target="_blank">Follow</a>
             </div>
-            <div class="feed-embed">
-              <strong>Twitter / X</strong>
-              Latest posts &amp; threads
+            <div class="feed-embed tw-embed">
+              <a class="twitter-timeline"
+                 href="https://twitter.com/SherriedeK"
+                 data-height="480"
+                 data-chrome="noheader nofooter noborders"
+                 data-theme="light"
+                 data-dnt="true">
+                Tweets by @SherriedeK
+              </a>
             </div>
           </div>
 
         </div>
 
-        <!-- YouTube full width -->
+        <!-- YouTube — link card -->
         <div class="feed-block">
           <div class="feed-head">
             <span class="feed-dot yt" aria-hidden="true">▶</span>
@@ -442,8 +487,11 @@ p { margin:0 0 1em; }
             <a href="https://www.youtube.com/@SherrieDeKiguchi" class="feed-follow yt" rel="noopener" target="_blank">Subscribe</a>
           </div>
           <div class="feed-embed">
-            <strong>YouTube</strong>
-            Latest videos from Sherrie's channel
+            <div class="feed-link-card">
+              <span class="platform-icon yt" aria-hidden="true">▶</span>
+              <p>Watch Sherrie's latest videos on YouTube</p>
+              <a href="https://www.youtube.com/@SherrieDeKiguchi" class="open-link" style="background:#ff0000;" rel="noopener" target="_blank">Watch on YouTube ↗</a>
+            </div>
           </div>
         </div>
 
@@ -473,6 +521,14 @@ p { margin:0 0 1em; }
 </footer>
 
 <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+
+<!-- Facebook SDK -->
+<script async defer crossorigin="anonymous"
+  src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v19.0">
+</script>
+
+<!-- Twitter / X Timeline widget -->
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 </body>
 </html>
