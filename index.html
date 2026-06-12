@@ -489,50 +489,6 @@ section:first-of-type { border-top: 0; }
 
 .feed-note { font-size: .85rem; color: var(--muted); margin-top: 18px; }
 
-/* ---------- Videos ---------- */
-.video-feature {
-  display: grid;
-  gap: 36px;
-  grid-template-columns: 1fr;
-  align-items: start;
-}
-.shorts-wrap {
-  position: relative;
-  width: 100%;
-  max-width: 320px;
-  margin: 0 auto;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  background: #000;
-}
-.shorts-wrap::before {
-  content: '';
-  display: block;
-  padding-top: 177.78%; /* 9:16 */
-}
-.shorts-wrap iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-.video-text h3 {
-  font-size: clamp(1.2rem, 2.5vw + .5rem, 1.6rem);
-  margin-bottom: 16px;
-  color: var(--ink);
-}
-.video-text p { color: var(--ink-2); max-width: 38em; }
-.video-tag {
-  display: inline-block;
-  font-size: .75rem; letter-spacing: .16em; text-transform: uppercase;
-  color: var(--accent); font-weight: 700; margin-bottom: 10px;
-}
-@media (min-width: 820px) {
-  .video-feature { grid-template-columns: 320px 1fr; gap: 52px; }
-}
-
 /* ---------- Contact / CTA ---------- */
 .cta-band {
   background: var(--ink); color: #fff; border-radius: var(--radius);
@@ -590,7 +546,6 @@ section:first-of-type { border-top: 0; }
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#issues">Issues</a></li>
-        <li><a href="#videos">Videos</a></li>
         <li><a href="#feed">Social</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -684,42 +639,6 @@ section:first-of-type { border-top: 0; }
           <p>A controlled, fair immigration system that works for the people of Britain — not against them.</p>
           <a class="issue-link" href="immigration.html">Read more →</a>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============== VIDEOS ============== -->
-  <section id="videos" aria-labelledby="videos-title">
-    <div class="container">
-      <div class="section-head">
-        <h2 id="videos-title">Watch</h2>
-        <p>Sherrie speaks directly on the issues that matter.</p>
-      </div>
-
-      <div class="video-feature">
-
-        <!-- Shorts embed -->
-        <div>
-          <div class="shorts-wrap">
-            <iframe
-              src="https://www.youtube.com/embed/6Tn_JQz1r4c"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              title="Sherrie De Kiguchi — Women's Safety">
-            </iframe>
-          </div>
-        </div>
-
-        <!-- Text -->
-        <div class="video-text">
-          <span class="video-tag">Women's Safety</span>
-          <h3>Every woman deserves the right to walk home safely</h3>
-          <p>Women's safety is one of the issues closest to my heart. Like millions of women across this country, I have experienced harassment in public spaces. I have been groped on the tube. I have been followed off trains. I have been approached by strange men with strange questions, in places I should have felt safe. I have spoken to countless women who tell the same story. The harassment is rising. We all know it.</p>
-          <p>What we also know is that nothing happens. Police charging rates for sexual offences in England and Wales have collapsed to historic lows. Just 1.5 percent of reported cases result in a charge. Survivors know this. The Crown Prosecution Service knows this. The men who do it know this too.</p>
-          <p>The picture on our railways is no better. Sexual harassment on our trains and tubes is widely reported but rarely prosecuted. Women have stopped reporting because nothing changes. Then the statistics fall. Then politicians say there is no problem.</p>
-          <p>I have given my time to women's safety for years, with qualifications in child safety and development along the way. I will not pretend any of it is acceptable. Every woman in this country deserves the right to walk home, take a train, or ride a tube without holding her keys between her fingers. Specialist violence against women and girls units in every police force. Mandatory minimums for sexual offence convictions. A court backlog clearance plan that prioritises survivors. None of this is on the table at Westminster. I am going to put it there.</p>
-        </div>
-
       </div>
     </div>
   </section>
