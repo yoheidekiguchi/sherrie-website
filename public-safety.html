@@ -111,6 +111,49 @@ p { margin: 0 0 1em; }
 .pull-quote { border-left: 4px solid var(--accent); margin: 28px 0; padding: 14px 22px; background: var(--bg-2); border-radius: 0 var(--radius) var(--radius) 0; }
 .pull-quote p { font-family: Georgia, serif; font-size: 1.12rem; font-style: italic; color: var(--ink-2); margin: 0; }
 
+/* Feature layout: text + vertical video */
+.feature-layout {
+  display: grid;
+  gap: 36px;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+.shorts-col {
+  max-width: 300px;
+  margin: 0 auto;
+  width: 100%;
+}
+.shorts-player {
+  position: relative;
+  padding-bottom: 177.78%; /* 9:16 */
+  background: #000;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.shorts-player iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.shorts-sub {
+  text-align: center;
+  margin-top: 10px;
+  font-size: .85rem;
+  color: var(--muted);
+}
+.shorts-sub a { color: var(--muted); }
+.shorts-sub a:hover { color: var(--accent); }
+@media (min-width: 820px) {
+  .feature-layout {
+    grid-template-columns: 1fr 300px;
+    gap: 52px;
+  }
+  .shorts-col { margin: 0; }
+}
+
 /* YouTube embed */
 .yt-embed { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); margin-top: 8px; }
 .yt-embed-head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
@@ -188,58 +231,31 @@ p { margin: 0 0 1em; }
   <div class="issue-body">
     <div class="container">
 
-      <section aria-labelledby="ps-why">
-        <div class="prose">
-          <h2 id="ps-why">Why public safety cannot wait</h2>
-          <p>Across Britain, ordinary people are telling the same story: they feel less safe than they did ten years ago. They see police resources stretched thin, response times rising, and serious crimes going unsolved. They hear reassuring language from politicians while the reality on the ground gets harder.</p>
-          <p>Sherrie De Kiguchi grew up in Hampshire and has spent her adult life working within communities — first in finance, then frontline in a charity supporting rape survivors, and as a parish councillor. She has heard, directly, what people fear for their families and their neighbours. That lived experience drives her approach to public safety: it must be concrete, it must be honest, and it must put the safety of real people ahead of political reputation.</p>
-          <div class="pull-quote">
-            <p>"People deserve to feel safe in their own towns and villages. That is not a radical idea — it is the most basic promise any politician can make. And right now, too many are breaking it."</p>
+      <section aria-labelledby="ps-main">
+        <div class="feature-layout">
+
+          <!-- Text -->
+          <div class="prose">
+            <h2 id="ps-main">Women's safety — in Sherrie's own words</h2>
+            <p>Women's safety is one of the issues closest to my heart. Like millions of women across this country, I have experienced harassment in public spaces. I have been groped on the tube. I have been followed off trains. I have been approached by strange men with strange questions, in places I should have felt safe. I have spoken to countless women who tell the same story. The harassment is rising. We all know it.</p>
+            <p>What we also know is that nothing happens. Police charging rates for sexual offences in England and Wales have collapsed to historic lows. Just 1.5 percent of reported cases result in a charge. Survivors know this. The Crown Prosecution Service knows this. The men who do it know this too.</p>
+            <p>The picture on our railways is no better. Sexual harassment on our trains and tubes is widely reported but rarely prosecuted. The British Transport Police know it happens. The Crown Prosecution Service has the data. Women have stopped reporting because nothing changes. Then the statistics fall. Then politicians say there is no problem.</p>
+            <p>I have given my time to women's safety for years, with qualifications in child safety and development along the way. I will not pretend any of it is acceptable. Every woman in this country deserves the right to walk home, take a train, or ride a tube without holding her keys between her fingers. Specialist violence against women and girls units in every police force. Mandatory minimums for sexual offence convictions. A court backlog clearance plan that prioritises survivors. None of this is on the table at Westminster. I am going to put it there.</p>
           </div>
-        </div>
-      </section>
 
-      <section aria-labelledby="ps-what">
-        <div class="prose">
-          <h2 id="ps-what">What Sherrie is campaigning for</h2>
-          <ul>
-            <li><strong>Visible policing in communities</strong> — not just vehicle patrols passing through, but officers who know the streets and the people on them.</li>
-            <li><strong>Honest crime data</strong> — an end to the reclassification and downgrading of crimes that skew public perception of safety levels.</li>
-            <li><strong>Accountability for police leadership</strong> — chief constables and Police and Crime Commissioners must answer for failure, not shuffle between roles when scandals emerge.</li>
-            <li><strong>Protection for vulnerable women and girls</strong> — the failures exposed in Rotherham, Rochdale, and across Britain showed that "community sensitivity" was placed above the safety of children. That must never happen again.</li>
-            <li><strong>Support for frontline officers</strong> — police on the ground are often doing an impossible job with shrinking resources. They deserve proper funding, clear guidance, and institutional backing to do their work without fear of political interference.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section aria-labelledby="ps-account">
-        <div class="prose">
-          <h2 id="ps-account">Accountability over optics</h2>
-          <p>The pattern Sherrie has witnessed — and that survivors and whistleblowers like <strong>Maggie Oliver</strong> have documented publicly — is of institutions prioritising their own reputation over the safety of the people they serve. Officers who raised the alarm about grooming gangs were ignored, sidelined, or punished. Victims were disbelieved. Perpetrators were protected by a culture of institutional cowardice dressed up as policy.</p>
-          <p>Public safety is not a communications strategy. It is a duty. Sherrie campaigns for a politics that treats it as exactly that — and holds those in power to account when they fail.</p>
-        </div>
-      </section>
-
-      <section aria-labelledby="ps-video">
-        <h2 id="ps-video">Watch Sherrie's campaign videos</h2>
-        <p style="color:var(--muted); margin-bottom: 16px;">Hear directly from Sherrie on the issues she is fighting for.</p>
-        <div class="yt-embed">
-          <div class="yt-embed-head">
-            <span class="yt-icon" aria-hidden="true">▶</span>
-            <div>
-              <h3 style="margin:0; font-family:-apple-system,sans-serif; font-size:1rem;">YouTube</h3>
-              <span>@SherrieDeKiguchi</span>
+          <!-- Shorts video -->
+          <div class="shorts-col">
+            <div class="shorts-player">
+              <iframe
+                src="https://www.youtube.com/embed/6Tn_JQz1r4c"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                title="Sherrie De Kiguchi — Women's Safety">
+              </iframe>
             </div>
-            <a class="yt-sub" href="https://www.youtube.com/@SherrieDeKiguchi" rel="noopener" target="_blank">Subscribe</a>
+            <p class="shorts-sub"><a href="https://www.youtube.com/@SherrieDeKiguchi" rel="noopener" target="_blank">Subscribe on YouTube ↗</a></p>
           </div>
-          <div class="yt-ratio">
-            <iframe
-              src="https://www.youtube.com/embed?listType=playlist&list=UU4PQynhPdzhZxSVvpCzxz1Q&rel=0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              title="Sherrie De Kiguchi — campaign videos on public safety and more">
-            </iframe>
-          </div>
+
         </div>
       </section>
 
