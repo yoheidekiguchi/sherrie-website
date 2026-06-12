@@ -111,6 +111,20 @@ p { margin: 0 0 1em; }
 .pull-quote { border-left: 4px solid var(--accent); margin: 28px 0; padding: 14px 22px; background: var(--bg-2); border-radius: 0 var(--radius) var(--radius) 0; }
 .pull-quote p { font-family: Georgia, serif; font-size: 1.12rem; font-style: italic; color: var(--ink-2); margin: 0; }
 
+/* Hero intro: text left, video right */
+.hero-intro-layout {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+@media (min-width: 820px) {
+  .hero-intro-layout {
+    grid-template-columns: 1fr 260px;
+    gap: 48px;
+  }
+}
+
 /* Feature layout: text + vertical video */
 .feature-layout {
   display: grid;
@@ -221,10 +235,24 @@ p { margin: 0 0 1em; }
   <div class="issue-hero">
     <div class="container">
       <a class="back-link" href="/#issues">← Back to all issues</a>
-      <div class="issue-eyebrow">Campaign Priority 1 of 4</div>
-      <div class="issue-num-large" aria-hidden="true">1</div>
-      <h1>Public Safety</h1>
-      <p class="lead">Safer streets, stronger communities, and real accountability in policing — not just warm words from people who have never walked those streets at night.</p>
+      <div class="hero-intro-layout">
+        <div>
+          <div class="issue-eyebrow">Campaign Priority 1 of 4</div>
+          <div class="issue-num-large" aria-hidden="true">1</div>
+          <h1>Public Safety</h1>
+          <p class="lead">Safer streets, stronger communities, and real accountability in policing — not just warm words from people who have never walked those streets at night.</p>
+        </div>
+        <div class="shorts-col">
+          <div class="shorts-player">
+            <iframe
+              src="https://www.youtube.com/embed/yRDIlyhTcNs"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              title="Sherrie De Kiguchi — About Sherrie">
+            </iframe>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
