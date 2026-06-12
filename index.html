@@ -350,8 +350,9 @@ p { margin: 0 0 1em; }
 .hero p.lead {
   font-size: 1.1rem; color: var(--ink-2); max-width: 36em;
 }
+.hero-right { display: flex; flex-direction: column; align-items: center; gap: 16px; }
 .hero-actions {
-  display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px;
+  display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
 }
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
@@ -574,13 +575,15 @@ section:first-of-type { border-top: 0; }
           <p class="lead">
             Born and raised in Hampshire, <strong>Sherrie De Kiguchi</strong> is a British political campaigner, parish councillor, and former finance professional. A frontline charity worker supporting rape survivors, she now campaigns publicly against child sexual exploitation (CSE) and grooming gangs, and for justice for victims, public safety and immigration reform across Britain.
           </p>
+        </div>
+        <div class="hero-right">
+          <div class="headshot" role="img" aria-label="Portrait of Sherrie De Kiguchi, Hampshire-based CSE campaigner and parish councillor">
+            <img src="assets/sherrie-headshot.jpg" alt="Sherrie De Kiguchi — Hampshire-born British political campaigner, parish councillor and CSE survivor advocate" width="420" height="525" loading="eager" />
+          </div>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#feed">Follow the campaign</a>
             <a class="btn btn-secondary" href="#issues">What Sherrie stands for</a>
           </div>
-        </div>
-        <div class="headshot" role="img" aria-label="Portrait of Sherrie De Kiguchi, Hampshire-based CSE campaigner and parish councillor">
-          <img src="assets/sherrie-headshot.jpg" alt="Sherrie De Kiguchi — Hampshire-born British political campaigner, parish councillor and CSE survivor advocate" width="420" height="525" loading="eager" />
         </div>
       </div>
     </div>
