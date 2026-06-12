@@ -416,7 +416,9 @@ section:first-of-type { border-top: 0; }
   font-family: -apple-system, sans-serif; font-size: .85rem; font-weight: 700;
   flex-shrink: 0;
 }
-.issue-card p { color: var(--ink-2); margin: 0; font-size: .98rem; }
+.issue-card p { color: var(--ink-2); margin: 0 0 12px; font-size: .98rem; }
+.issue-link { font-size: .88rem; font-weight: 600; color: var(--accent); text-decoration: none; }
+.issue-link:hover { text-decoration: underline; }
 
 @media (min-width: 680px) { .issues { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 980px) { .issues { grid-template-columns: 1fr 1fr 1fr 1fr; } }
@@ -617,18 +619,22 @@ section:first-of-type { border-top: 0; }
         <article class="issue-card" role="listitem">
           <h3><span class="issue-num" aria-hidden="true">1</span>Public Safety</h3>
           <p>Safer streets, stronger communities, and real accountability in policing — not just warm words.</p>
+          <a class="issue-link" href="public-safety.html">Read more →</a>
         </article>
         <article class="issue-card" role="listitem">
           <h3><span class="issue-num" aria-hidden="true">2</span>Justice for Victims</h3>
           <p>Ending the culture of cover-ups. Victims must be heard, believed, and protected — full stop.</p>
+          <a class="issue-link" href="justice-for-victims.html">Read more →</a>
         </article>
         <article class="issue-card" role="listitem">
           <h3><span class="issue-num" aria-hidden="true">3</span>Child Protection</h3>
           <p>Zero tolerance for grooming gangs. Full accountability for every institution that failed survivors like those in Rotherham.</p>
+          <a class="issue-link" href="child-protection.html">Read more →</a>
         </article>
         <article class="issue-card" role="listitem">
           <h3><span class="issue-num" aria-hidden="true">4</span>Immigration</h3>
           <p>A controlled, fair immigration system that works for the people of Britain — not against them.</p>
+          <a class="issue-link" href="immigration.html">Read more →</a>
         </article>
       </div>
     </div>
