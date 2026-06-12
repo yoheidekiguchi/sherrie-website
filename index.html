@@ -390,7 +390,15 @@ section:first-of-type { border-top: 0; }
 .section-head p { color: var(--muted); }
 
 /* ---------- About ---------- */
-.about p { max-width: 38em; }
+.about-layout { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: start; }
+.about-layout .about-text p { max-width: 38em; }
+.about-shorts { flex-shrink: 0; width: 260px; }
+.about-shorts .shorts-player { position: relative; width: 100%; padding-bottom: 177.78%; border-radius: 12px; overflow: hidden; }
+.about-shorts .shorts-player iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.about-shorts .shorts-sub { font-size: 0.78rem; color: #666; text-align: center; margin-top: 6px; }
+@media (min-width: 760px) {
+  .about-layout { grid-template-columns: 1fr 260px; gap: 48px; }
+}
 
 /* ---------- Issues grid ---------- */
 .issues {
@@ -585,29 +593,37 @@ section:first-of-type { border-top: 0; }
         <h2 id="about-title">About Sherrie De Kiguchi — Hampshire campaigner & parish councillor</h2>
         <p>Campaigner, advocate, and a voice for those who go unheard.</p>
       </div>
-      <article itemscope itemtype="https://schema.org/Person" itemid="https://sherrie.dekiguchi.com/#person">
-        <meta itemprop="name" content="Sherrie De Kiguchi" />
-        <meta itemprop="givenName" content="Sherrie" />
-        <meta itemprop="familyName" content="De Kiguchi" />
-        <meta itemprop="jobTitle" content="Political Campaigner & Parish Councillor" />
-        <meta itemprop="nationality" content="British" />
-        <meta itemprop="gender" content="Female" />
-        <meta itemprop="description" content="Hampshire-born British political campaigner, parish councillor and former finance professional campaigning against child sexual exploitation (CSE) and grooming gangs, and for justice for victims and a safer, fairer Britain." />
-        <link itemprop="url" href="https://sherrie.dekiguchi.com/" />
-        <link itemprop="sameAs" href="https://www.facebook.com/profile.php?id=883706581482868" />
-        <link itemprop="sameAs" href="https://www.instagram.com/sherriedekiguchi/" />
-        <link itemprop="sameAs" href="https://x.com/SherriedeK" />
-        <link itemprop="sameAs" href="https://www.youtube.com/@SherrieDeKiguchi" />
-        <p>
-          <span itemprop="name"><strong>Sherrie De Kiguchi</strong></span> was born and raised in <span itemprop="birthPlace" itemscope itemtype="https://schema.org/Place"><span itemprop="name">Hampshire, England</span></span>. A British national with a background in finance, she has worked frontline supporting rape survivors through a specialist charity, and has served her community for years as a <span itemprop="jobTitle">parish councillor</span>. She believes in accountability, transparency, and doing what is right — not what is easy. Her surname, De Kiguchi, comes from her marriage into a Japanese family, and that blend of cultures has deepened her conviction that Britain's strength lies in its communities, not its politicians.
-        </p>
-        <p>
-          Inspired by the courage of whistleblowers like <strong>Maggie Oliver</strong> — the former Greater Manchester Police detective who exposed the Rochdale grooming gang scandal — Sherrie became a vocal campaigner for child protection, CSE survivor justice, and accountability for the grooming gangs that have devastated towns like Rotherham, Rochdale, Telford and Oldham. She has seen first-hand how institutions fail the most vulnerable when political convenience overrides moral duty.
-        </p>
-        <p>
-          Her approach is direct and uncompromising: speak plainly, stand firm under pressure, and never back down when it matters most. Sherrie campaigns not for party advantage, but for the families and communities across Britain that have been let down for far too long.
-        </p>
-      </article>
+      <div class="about-layout">
+        <article class="about-text" itemscope itemtype="https://schema.org/Person" itemid="https://sherrie.dekiguchi.com/#person">
+          <meta itemprop="name" content="Sherrie De Kiguchi" />
+          <meta itemprop="givenName" content="Sherrie" />
+          <meta itemprop="familyName" content="De Kiguchi" />
+          <meta itemprop="jobTitle" content="Political Campaigner & Parish Councillor" />
+          <meta itemprop="nationality" content="British" />
+          <meta itemprop="gender" content="Female" />
+          <meta itemprop="description" content="Hampshire-born English woman, parish councillor and campaigner for child protection, CSE survivor support and accountability for grooming gangs. Fighting for families and communities across Britain." />
+          <link itemprop="url" href="https://sherrie.dekiguchi.com/" />
+          <link itemprop="sameAs" href="https://www.facebook.com/profile.php?id=883706581482868" />
+          <link itemprop="sameAs" href="https://www.instagram.com/sherriedekiguchi/" />
+          <link itemprop="sameAs" href="https://x.com/SherriedeK" />
+          <link itemprop="sameAs" href="https://www.youtube.com/@SherrieDeKiguchi" />
+          <p>
+            <span itemprop="name"><strong>Sherrie De Kiguchi</strong></span> was born and raised in <span itemprop="birthPlace" itemscope itemtype="https://schema.org/Place"><span itemprop="name">Hampshire, England</span></span>. A proud English woman with a background in finance, she has provided frontline support to survivors of sexual violence and currently serves her community as a <span itemprop="jobTitle">parish councillor</span>. She believes in accountability, transparency, and doing what is right, not what is easy. Sherrie is about to give birth to her first child. She grew up surrounded by a big family and looks forward to creating the same warmth and connection for her own. It has deepened her conviction that Britain's strength lies in its communities, not its politicians.
+          </p>
+          <p>
+            Inspired by the courage of whistleblowers and survivors who have refused to stay silent, Sherrie became a vocal campaigner for child protection, support for survivors of child sexual exploitation, and accountability for the grooming gangs that have devastated towns like Rotherham, Rochdale, Telford and Oldham. She has seen first hand how institutions fail the most vulnerable when political convenience overrides moral duty.
+          </p>
+          <p>
+            Her approach is direct and uncompromising: speak plainly, stand firm under pressure, and never back down when it matters most. Sherrie campaigns not for party advantage, but for the families and communities across Britain that have been let down for far too long.
+          </p>
+        </article>
+        <aside class="about-shorts" aria-label="Sherrie De Kiguchi introduction video">
+          <div class="shorts-player">
+            <iframe src="https://www.youtube.com/embed/yRDIlyhTcNs" title="About Sherrie De Kiguchi" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="shorts-sub">About Sherrie</p>
+        </aside>
+      </div>
     </div>
   </section>
 
