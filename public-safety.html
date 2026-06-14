@@ -202,6 +202,11 @@ p { margin: 0 0 1em; }
 .yt-ratio { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
 .yt-ratio iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
+/* Policy list */
+.policy-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; max-width: 42em; }
+.policy-list li { padding: 14px 18px 14px 52px; background: var(--bg-2); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; position: relative; font-size: 1rem; line-height: 1.5; box-shadow: var(--shadow); }
+.policy-list li::before { content: "→"; position: absolute; left: 18px; top: 14px; color: var(--accent); font-weight: 700; }
+
 /* CTA band */
 .cta-band { background: var(--ink); color: #fff; border-radius: var(--radius); padding: 32px 24px; text-align: center; box-shadow: var(--shadow); margin-bottom: 0; }
 .cta-band h2 { color: #fff; margin-bottom: .4em; }
@@ -296,6 +301,17 @@ p { margin: 0 0 1em; }
           </div>
 
         </div>
+      </section>
+
+      <section aria-labelledby="ps-calls">
+        <h2 id="ps-calls">What Sherrie is calling for</h2>
+        <ul class="policy-list">
+          <li>Mandatory minimum sentences for sexual assault, stalking, and violence against women — no suspended sentences, no early release</li>
+          <li>Charging rates for rape and sexual assault restored to at least 1 in 3 within five years, with named accountability for every police force that falls short</li>
+          <li>Specialist domestic abuse and sexual violence units in every police force, staffed by officers trained to believe and investigate — not dismiss</li>
+          <li>Lifetime registration and electronic monitoring for serious sexual offenders, with automatic deportation for foreign nationals convicted of these crimes</li>
+          <li>Safer streets funding ring-fenced for lighting, CCTV, and visible patrols on the routes women actually walk home</li>
+        </ul>
       </section>
 
       <section aria-labelledby="ps-other">

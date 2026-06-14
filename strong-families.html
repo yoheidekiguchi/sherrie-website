@@ -191,6 +191,11 @@ p { margin: 0 0 1em; }
   .shorts-col { margin: 0; }
 }
 
+/* Policy list */
+.policy-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; max-width: 42em; }
+.policy-list li { padding: 14px 18px 14px 52px; background: var(--bg-2); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; position: relative; font-size: 1rem; line-height: 1.5; box-shadow: var(--shadow); }
+.policy-list li::before { content: "→"; position: absolute; left: 18px; top: 14px; color: var(--accent); font-weight: 700; }
+
 /* CTA band */
 .cta-band { background: var(--ink); color: #fff; border-radius: var(--radius); padding: 32px 24px; text-align: center; box-shadow: var(--shadow); margin-bottom: 0; }
 .cta-band h2 { color: #fff; margin-bottom: .4em; }
@@ -286,6 +291,17 @@ p { margin: 0 0 1em; }
           </div>
 
         </div>
+      </section>
+
+      <section aria-labelledby="sf-calls">
+        <h2 id="sf-calls">What Sherrie is calling for</h2>
+        <ul class="policy-list">
+          <li>A transferable marriage tax allowance worth at least £1,000 a year — so the tax system stops penalising couples who stay together</li>
+          <li>Statutory protection and ring-fenced funding for village halls, community centres, and youth clubs — the infrastructure of belonging</li>
+          <li>Family hubs in every constituency offering parenting support, mental health help, and early intervention before crises hit</li>
+          <li>Stamp duty relief and housing priority for families with children, so young couples can afford to put down roots near their parents and grandparents</li>
+          <li>Paid time off work to serve on parish councils, school governing boards, and PTAs — so civic participation is not just for those who can afford it</li>
+        </ul>
       </section>
 
       <section aria-labelledby="sf-other">

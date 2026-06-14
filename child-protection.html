@@ -191,6 +191,11 @@ p { margin: 0 0 1em; }
   .shorts-col { margin: 0; }
 }
 
+/* Policy list */
+.policy-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; max-width: 42em; }
+.policy-list li { padding: 14px 18px 14px 52px; background: var(--bg-2); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; position: relative; font-size: 1rem; line-height: 1.5; box-shadow: var(--shadow); }
+.policy-list li::before { content: "→"; position: absolute; left: 18px; top: 14px; color: var(--accent); font-weight: 700; }
+
 /* CTA band */
 .cta-band { background: var(--ink); color: #fff; border-radius: var(--radius); padding: 32px 24px; text-align: center; box-shadow: var(--shadow); margin-bottom: 0; }
 .cta-band h2 { color: #fff; margin-bottom: .4em; }
@@ -291,6 +296,18 @@ p { margin: 0 0 1em; }
           </div>
 
         </div>
+      </section>
+
+      <section aria-labelledby="cp-calls">
+        <h2 id="cp-calls">What Sherrie is calling for</h2>
+        <ul class="policy-list">
+          <li>A full statutory public inquiry into the grooming gang scandals in Rotherham, Rochdale, Telford, Oldham, Bradford and beyond — with the power to compel evidence and name those who looked away</li>
+          <li>Criminal prosecution of officials, councillors, and officers who knew and stayed silent — misconduct in public office charges, not retirement packages</li>
+          <li>Mandatory reporting laws making it a criminal offence for any teacher, social worker, or officer to fail to report suspected child sexual abuse</li>
+          <li>A dedicated National Child Protection Agency with the powers, funding, and independence to investigate networks across council boundaries</li>
+          <li>Lifetime sentences with no parole for organised child sexual exploitation, and automatic deportation of foreign nationals convicted of crimes against children</li>
+          <li>Statutory protection and trauma-informed support for children in care — who are targeted precisely because the state has already failed them</li>
+        </ul>
       </section>
 
       <section aria-labelledby="cp-other">
