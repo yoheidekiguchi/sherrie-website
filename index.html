@@ -129,6 +129,31 @@
 }
 </script>
 
+<!-- JSON-LD: Organization (campaign) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://sherrie.dekiguchi.com/#campaign",
+  "name": "Sherrie De Kiguchi for Hampshire",
+  "alternateName": "Sherrie De Kiguchi Campaign",
+  "url": "https://sherrie.dekiguchi.com",
+  "email": "contact@dekiguchi.com",
+  "founder": { "@id": "https://sherrie.dekiguchi.com/#person" },
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Hampshire, UK"
+  },
+  "knowsAbout": ["Public Safety", "Child Protection", "Family Policy", "Forgotten Generation", "Local Government"],
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=883706581482868",
+    "https://www.instagram.com/sherriedekiguchi/",
+    "https://x.com/SherriedeK",
+    "https://www.youtube.com/@SherrieDeKiguchi"
+  ]
+}
+</script>
+
 <!-- JSON-LD: WebSite -->
 <script type="application/ld+json">
 {
@@ -139,15 +164,7 @@
   "url": "https://sherrie.dekiguchi.com/",
   "inLanguage": "en-GB",
   "about": { "@id": "https://sherrie.dekiguchi.com/#person" },
-  "publisher": { "@id": "https://sherrie.dekiguchi.com/#person" },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": "https://sherrie.dekiguchi.com/?s={search_term_string}"
-    },
-    "query-input": "required name=search_term_string"
-  }
+  "publisher": { "@id": "https://sherrie.dekiguchi.com/#campaign" }
 }
 </script>
 
@@ -788,7 +805,8 @@ section:first-of-type { border-top: 0; }
   <div class="container row">
     <div>
       <strong>Sherrie De Kiguchi</strong> — Campaigner for Safer, Fairer Britain<br>
-      <span>&copy; <span id="yr">2026</span> Sherrie De Kiguchi. All rights reserved.</span>
+      <span>&copy; <span id="yr">2026</span> Sherrie De Kiguchi. All rights reserved.</span><br>
+      <span style="font-size:.82rem;color:var(--muted)">Promoted by Sherrie De Kiguchi, Hampshire, England. Published and promoted by the campaign of Sherrie De Kiguchi.</span>
     </div>
     <nav class="footer-social" aria-label="Social media">
       <a href="https://www.facebook.com/profile.php?id=883706581482868" rel="noopener" target="_blank">Facebook</a>
