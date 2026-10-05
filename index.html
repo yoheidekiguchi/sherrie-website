@@ -493,6 +493,8 @@ section:first-of-type { border-top: 0; }
 /* the actual embed container */
 .embed-body { overflow: hidden; border-radius: 8px; }
 .embed-body iframe { display: block; }
+.fb-feed { height: 500px; overflow-y: auto; overflow-x: hidden; }
+.fb-feed .fb-post { display: block; margin-bottom: 12px; }
 
 /* link-only card (Instagram / YouTube) */
 .link-card {
@@ -704,21 +706,11 @@ section:first-of-type { border-top: 0; }
               </div>
               <a class="embed-follow fb" href="https://www.facebook.com/profile.php?id=883706581482868" rel="noopener" target="_blank">Follow</a>
             </div>
-            <div class="embed-body">
+            <div class="embed-body fb-feed">
               <div id="fb-root"></div>
-              <div class="fb-page"
-                data-href="https://www.facebook.com/profile.php?id=883706581482868"
-                data-tabs="timeline"
-                data-width=""
-                data-height="500"
-                data-small-header="true"
-                data-adapt-container-width="true"
-                data-hide-cover="false"
-                data-show-facepile="false">
-                <blockquote cite="https://www.facebook.com/profile.php?id=883706581482868" class="fb-xfbml-parse-ignore">
-                  <a href="https://www.facebook.com/profile.php?id=883706581482868">Sherrie De Kiguchi on Facebook</a>
-                </blockquote>
-              </div>
+              <div class="fb-post" data-href="https://www.facebook.com/122128866009066467/posts/122142309201066467" data-width="500" data-show-text="true"></div>
+              <div class="fb-post" data-href="https://www.facebook.com/122128866009066467/posts/122141704089066467" data-width="500" data-show-text="true"></div>
+              <div class="fb-post" data-href="https://www.facebook.com/122128866009066467/posts/122141617887066467" data-width="500" data-show-text="true"></div>
             </div>
           </div>
 
@@ -783,7 +775,13 @@ section:first-of-type { border-top: 0; }
   </div>
 </footer>
 
-<!-- Facebook SDK -->
+<!-- Facebook SDK (post embeds need a pixel width between 350 and 750; size them to the card first) -->
+<script>
+document.querySelectorAll('.fb-post').forEach(function (el) {
+  var w = el.parentElement.clientWidth - 8;
+  el.setAttribute('data-width', Math.max(350, Math.min(750, w)));
+});
+</script>
 <script async defer crossorigin="anonymous"
   src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v19.0">
 </script>
