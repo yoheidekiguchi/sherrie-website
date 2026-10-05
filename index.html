@@ -561,6 +561,18 @@ section:first-of-type { border-top: 0; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* Union Flag colours: blue #012169, white, red #C8102E */
+.site-header { border-bottom: 0 !important; }
+.site-header::after, .site-footer::before {
+  content: ""; display: block; height: 9px;
+  background: linear-gradient(to bottom, #c8102e 0 3px, #ffffff 3px 6px, #012169 6px 9px);
+}
+.site-footer { padding-top: 0 !important; border-top: 0 !important; }
+.site-footer::before { margin-bottom: 32px; background: linear-gradient(to bottom, #012169 0 3px, #ffffff 3px 6px, #c8102e 6px 9px); }
+.issue-card, .other-card { border-top: 4px solid #c8102e !important; }
+.cta-band { border-top: 6px solid #c8102e; }
+.cta-band address a { color: #ffffff; }
 </style>
 </head>
 
