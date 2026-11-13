@@ -454,7 +454,8 @@ section:first-of-type { border-top: 0; }
 /* ---------- Books ---------- */
 .books { display: grid; gap: 18px; grid-template-columns: 1fr; }
 .book-card { display: flex; gap: 16px; align-items: flex-start; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
-.book-card img { width: 110px; height: auto; border-radius: 3px; box-shadow: 0 2px 8px rgba(10,37,64,.15); flex-shrink: 0; }
+.book-card img { height: 180px; width: auto; max-width: 180px; border-radius: 3px; box-shadow: 0 2px 8px rgba(10,37,64,.15); flex-shrink: 0; }
+@media (max-width: 480px) { .book-card img { height: 130px; max-width: 130px; } }
 .book-card h3 { font-family: inherit; font-size: 1.05rem; margin: 0 0 6px; color: var(--ink); }
 .book-card p { margin: 0 0 12px; font-size: .92rem; color: var(--muted); }
 .book-buy { display: inline-block; font-size: .88rem; font-weight: 600; color: #fff; background: var(--ink); padding: 8px 14px; border-radius: 4px; text-decoration: none; }
@@ -711,7 +712,7 @@ section:first-of-type { border-top: 0; }
       <div class="books" role="list">
         <!-- BOOKS:START -->
         <article class="book-card" role="listitem">
-          <img src="assets/books/lovely-lon-abc-economics.jpg" alt="Cover of Lovely Lon and the ABC&#x27;s of Economics" width="110" height="110" loading="lazy" />
+          <img src="assets/books/lovely-lon-abc-economics.jpg" alt="Cover of Lovely Lon and the ABC&#x27;s of Economics" width="180" height="180" loading="lazy" />
           <div>
             <h3>Lovely Lon and the ABC&#x27;s of Economics</h3>
             <p>Picture book. Hardcover.</p>
@@ -722,7 +723,7 @@ section:first-of-type { border-top: 0; }
           </div>
         </article>
         <article class="book-card" role="listitem">
-          <img src="assets/books/the-forex-foundations.jpg" alt="Cover of The Forex Foundations: Mastering the Basics of Currency Trading" width="110" height="170" loading="lazy" />
+          <img src="assets/books/the-forex-foundations.jpg" alt="Cover of The Forex Foundations: Mastering the Basics of Currency Trading" width="116" height="180" loading="lazy" />
           <div>
             <h3>The Forex Foundations: Mastering the Basics of Currency Trading</h3>
             <p>Published 2025. Paperback.</p>

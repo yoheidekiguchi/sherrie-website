@@ -10,13 +10,13 @@ for b in data['books']:
     if not live:
         continue
     t = html.escape(b['title'])
-    h = 170 if b.get('tall') else 110
+    w, h = (116, 180) if b.get('tall') else (180, 180)
     links = '\n'.join(
         f'              <a class="book-buy" href="https://www.amazon.co.uk/dp/{e["isbn10"]}" rel="noopener" target="_blank">'
         f'{html.escape(e["lang"]) if e["lang"] != "Paperback" else "Buy on Amazon UK"}</a>' for e in live)
     langs = '' if b.get('tall') else '<p class="book-note">Amazon UK, by edition:</p>\n'
     cards.append(f'''        <article class="book-card" role="listitem">
-          <img src="assets/books/{b['img']}" alt="Cover of {t}" width="110" height="{h}" loading="lazy" />
+          <img src="assets/books/{b['img']}" alt="Cover of {t}" width="{w}" height="{h}" loading="lazy" />
           <div>
             <h3>{t}</h3>
             <p>{html.escape(b['format'])}</p>
