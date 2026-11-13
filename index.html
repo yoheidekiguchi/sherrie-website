@@ -459,6 +459,9 @@ section:first-of-type { border-top: 0; }
 .book-card p { margin: 0 0 12px; font-size: .92rem; color: var(--muted); }
 .book-buy { display: inline-block; font-size: .88rem; font-weight: 600; color: #fff; background: var(--ink); padding: 8px 14px; border-radius: 4px; text-decoration: none; }
 .book-buy:hover { background: #c8102e; }
+.book-links { display: flex; flex-wrap: wrap; gap: 6px; }
+.book-links .book-buy { padding: 6px 11px; font-size: .82rem; }
+.book-card p.book-note { margin: 0 0 6px; font-size: .82rem; }
 @media (min-width: 760px) { .books { grid-template-columns: 1fr 1fr; } }
 
 /* ---------- Social feed ---------- */
@@ -706,22 +709,29 @@ section:first-of-type { border-top: 0; }
         <h2 id="books-title">Books</h2>
       </div>
       <div class="books" role="list">
+        <!-- BOOKS:START -->
         <article class="book-card" role="listitem">
-          <img src="assets/books/lovely-lon-abc-economics.jpg" alt="Cover of Lovely Lon and the ABC's of Economics" width="110" height="110" loading="lazy" />
+          <img src="assets/books/lovely-lon-abc-economics.jpg" alt="Cover of Lovely Lon and the ABC&#x27;s of Economics" width="110" height="110" loading="lazy" />
           <div>
-            <h3>Lovely Lon and the ABC's of Economics</h3>
-            <p>Picture book in English and Japanese. Hardcover.</p>
-            <a class="book-buy" href="https://www.amazon.co.uk/dp/106550750X" rel="noopener" target="_blank">Buy on Amazon UK</a>
+            <h3>Lovely Lon and the ABC&#x27;s of Economics</h3>
+            <p>Picture book. Hardcover.</p>
+            <p class="book-note">Amazon UK, by edition:</p>
+            <div class="book-links">
+              <a class="book-buy" href="https://www.amazon.co.uk/dp/106550750X" rel="noopener" target="_blank">English–Japanese</a>
+            </div>
           </div>
         </article>
         <article class="book-card" role="listitem">
-          <img src="assets/books/the-forex-foundations.jpg" alt="Cover of The Forex Foundations" width="110" height="170" loading="lazy" />
+          <img src="assets/books/the-forex-foundations.jpg" alt="Cover of The Forex Foundations: Mastering the Basics of Currency Trading" width="110" height="170" loading="lazy" />
           <div>
             <h3>The Forex Foundations: Mastering the Basics of Currency Trading</h3>
             <p>Published 2025. Paperback.</p>
-            <a class="book-buy" href="https://www.amazon.co.uk/dp/1917329636" rel="noopener" target="_blank">Buy on Amazon UK</a>
+                        <div class="book-links">
+              <a class="book-buy" href="https://www.amazon.co.uk/dp/1917329636" rel="noopener" target="_blank">Buy on Amazon UK</a>
+            </div>
           </div>
         </article>
+        <!-- BOOKS:END -->
       </div>
     </div>
   </section>
