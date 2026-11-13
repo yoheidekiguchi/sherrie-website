@@ -451,6 +451,16 @@ section:first-of-type { border-top: 0; }
 @media (min-width: 680px) { .issues { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 980px) { .issues { grid-template-columns: 1fr 1fr 1fr 1fr; } }
 
+/* ---------- Books ---------- */
+.books { display: grid; gap: 18px; grid-template-columns: 1fr; }
+.book-card { display: flex; gap: 16px; align-items: flex-start; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+.book-card img { width: 110px; height: auto; border-radius: 3px; box-shadow: 0 2px 8px rgba(10,37,64,.15); flex-shrink: 0; }
+.book-card h3 { font-family: inherit; font-size: 1.05rem; margin: 0 0 6px; color: var(--ink); }
+.book-card p { margin: 0 0 12px; font-size: .92rem; color: var(--muted); }
+.book-buy { display: inline-block; font-size: .88rem; font-weight: 600; color: #fff; background: var(--ink); padding: 8px 14px; border-radius: 4px; text-decoration: none; }
+.book-buy:hover { background: #c8102e; }
+@media (min-width: 760px) { .books { grid-template-columns: 1fr 1fr; } }
+
 /* ---------- Social feed ---------- */
 .feed-layout { display: flex; flex-direction: column; gap: 20px; }
 
@@ -589,6 +599,7 @@ section:first-of-type { border-top: 0; }
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#issues">Issues</a></li>
+        <li><a href="#books">Books</a></li>
         <li><a href="#feed">Social</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -683,6 +694,33 @@ section:first-of-type { border-top: 0; }
           <h3><span class="issue-num" aria-hidden="true">4</span>Forgotten Generation</h3>
           <p>A million young people are out of work and education. Suicide is the biggest killer of men under fifty. Sherrie wants a plan for young men and boys.</p>
           <a class="issue-link" href="forgotten-generation.html">Read more →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== BOOKS ============== -->
+  <section id="books" aria-labelledby="books-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="books-title">Books</h2>
+      </div>
+      <div class="books" role="list">
+        <article class="book-card" role="listitem">
+          <img src="assets/books/lovely-lon-abc-economics.jpg" alt="Cover of Lovely Lon and the ABC's of Economics" width="110" height="110" loading="lazy" />
+          <div>
+            <h3>Lovely Lon and the ABC's of Economics</h3>
+            <p>Picture book in English and Japanese. Hardcover.</p>
+            <a class="book-buy" href="https://www.amazon.co.uk/dp/106550750X" rel="noopener" target="_blank">Buy on Amazon UK</a>
+          </div>
+        </article>
+        <article class="book-card" role="listitem">
+          <img src="assets/books/the-forex-foundations.jpg" alt="Cover of The Forex Foundations" width="110" height="170" loading="lazy" />
+          <div>
+            <h3>The Forex Foundations: Mastering the Basics of Currency Trading</h3>
+            <p>Published 2025. Paperback.</p>
+            <a class="book-buy" href="https://www.amazon.co.uk/dp/1917329636" rel="noopener" target="_blank">Buy on Amazon UK</a>
+          </div>
         </article>
       </div>
     </div>
