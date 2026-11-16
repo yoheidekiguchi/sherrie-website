@@ -452,18 +452,35 @@ section:first-of-type { border-top: 0; }
 @media (min-width: 980px) { .issues { grid-template-columns: 1fr 1fr 1fr 1fr; } }
 
 /* ---------- Books ---------- */
-.books { display: grid; gap: 18px; grid-template-columns: 1fr; }
-.book-card { display: flex; gap: 16px; align-items: flex-start; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
-.book-card img { height: 180px; width: auto; max-width: 180px; border-radius: 3px; box-shadow: 0 2px 8px rgba(10,37,64,.15); flex-shrink: 0; }
-@media (max-width: 480px) { .book-card img { height: 130px; max-width: 130px; } }
-.book-card h3 { font-family: inherit; font-size: 1.05rem; margin: 0 0 6px; color: var(--ink); }
-.book-card p { margin: 0 0 12px; font-size: .92rem; color: var(--muted); }
-.book-buy { display: inline-block; font-size: .88rem; font-weight: 600; color: #fff; background: var(--ink); padding: 8px 14px; border-radius: 4px; text-decoration: none; }
-.book-buy:hover { background: #c8102e; }
-.book-links { display: flex; flex-wrap: wrap; gap: 6px; }
-.book-links .book-buy { padding: 6px 11px; font-size: .82rem; }
-.book-card p.book-note { margin: 0 0 6px; font-size: .82rem; }
-@media (min-width: 760px) { .books { grid-template-columns: 1fr 1fr; } }
+.books-head { margin: 0 0 18px; }
+.books-head h3 { font-size: 1.25rem; color: var(--ink); margin: 0 0 4px; }
+.books-head p { margin: 0; font-size: .95rem; color: #4b5563; max-width: 60ch; }
+.books { display: grid; gap: 22px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 760px) { .books { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1000px) { .books { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.book-card { display: flex; flex-direction: column; background: var(--bg-2); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); transition: transform .15s ease, box-shadow .15s ease; }
+.book-card:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(10,37,64,.08), 0 14px 30px rgba(10,37,64,.12); }
+.book-card > img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; }
+.book-body { display: flex; flex-direction: column; gap: 12px; padding: 14px 14px 16px; flex: 1; }
+.book-card h3 { font-family: inherit; font-size: 1.02rem; line-height: 1.3; margin: 0; color: var(--ink); }
+.book-series { display: block; font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px; }
+.book-links { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-top: auto; }
+.book-buy { display: inline-flex; align-items: center; gap: 6px; min-height: 34px; font-size: .8rem; font-weight: 600; color: var(--ink); background: #fff; border: 1.5px solid var(--ink); padding: 5px 11px; border-radius: 999px; text-decoration: none; transition: background .15s, color .15s, border-color .15s; }
+.book-buy:hover, .book-buy:focus-visible { background: var(--ink); color: #fff; }
+.book-buy:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.book-buy.book-en { align-self: flex-start; background: var(--ink); color: #fff; font-size: .86rem; padding: 6px 14px; }
+.book-buy.book-en:hover, .book-buy.book-en:focus-visible { background: var(--accent); border-color: var(--accent); }
+.flag { width: 18px; height: 12px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.18); flex-shrink: 0; }
+.book-bi-label { display: flex; align-items: center; gap: 6px; margin: 2px 0 0; font-size: .7rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #4b5563; }
+.book-bi { display: flex; flex-wrap: wrap; gap: 6px; }
+@media (max-width: 480px) { .books { gap: 14px; } .book-body { padding: 12px; } .book-card h3 { font-size: .95rem; } .book-buy { font-size: .74rem; padding: 4px 9px; gap: 5px; } .book-bi-label { font-size: .64rem; } }
+.books-other { margin-top: 34px; padding-top: 26px; border-top: 1px solid var(--line); }
+.book-wide { display: flex; gap: 20px; align-items: center; max-width: 640px; }
+.book-wide > img { width: 116px; height: auto; border-radius: 3px; box-shadow: 0 4px 14px rgba(10,37,64,.18); flex-shrink: 0; }
+.book-wide h3 { font-size: 1.1rem; margin: 0 0 6px; color: var(--ink); }
+.book-wide p { margin: 0 0 12px; font-size: .92rem; color: #4b5563; }
+.book-wide .book-buy { background: var(--ink); color: #fff; }
+.book-wide .book-buy:hover { background: var(--accent); border-color: var(--accent); }
 
 /* ---------- Social feed ---------- */
 .feed-layout { display: flex; flex-direction: column; gap: 20px; }
@@ -709,107 +726,119 @@ section:first-of-type { border-top: 0; }
       <div class="section-head">
         <h2 id="books-title">Books by Sherrie De Kiguchi</h2>
       </div>
-      <div class="books" role="list">
+      <div class="books-wrap">
         <!-- BOOKS:START -->
+        <div class="books-head"><h3>Lovely Lon picture books</h3><p>Hardcover picture books for young children, in English and in bilingual editions. Links go to Amazon UK.</p></div>
+        <div class="books" role="list">
         <article class="book-card" role="listitem">
-          <img src="assets/books/lovely-lon-abc-economics.jpg" alt="Cover of Lovely Lon and the ABC&#x27;s of Economics" width="180" height="180" loading="lazy" />
-          <div>
-            <h3>Lovely Lon and the ABC&#x27;s of Economics</h3>
-            <p>Picture book. Hardcover.</p>
-            <p class="book-note">Amazon UK, by edition:</p>
+          <img src="assets/books/lovely-lon-abc-economics.jpg" alt="Cover of Lovely Lon and the ABC&#x27;s of Economics" width="400" height="400" loading="lazy" />
+          <div class="book-body">
+            <h3><span class="book-series">Lovely Lon and</span> The ABC&#x27;s of Economics</h3>
             <div class="book-links">
-              <a class="book-buy" href="https://www.amazon.co.uk/dp/106550750X" rel="noopener" target="_blank">English–Japanese</a>
-              <a class="book-buy" href="https://www.amazon.co.uk/dp/1065507534" rel="noopener" target="_blank">English–Spanish</a>
-              <a class="book-buy" href="https://www.amazon.co.uk/dp/1065507569" rel="noopener" target="_blank">English–French</a>
+              <p class="book-bi-label"><img class="flag" src="assets/flags/gb.svg" alt="" width="18" height="12" />Bilingual: English +</p>
+              <div class="book-bi">
+                <a class="book-buy" href="https://www.amazon.co.uk/dp/106550750X" rel="noopener" target="_blank" aria-label="English and Japanese edition on Amazon UK"><img class="flag" src="assets/flags/jp.svg" alt="" width="18" height="12" />Japanese</a>
+                <a class="book-buy" href="https://www.amazon.co.uk/dp/1065507534" rel="noopener" target="_blank" aria-label="English and Spanish edition on Amazon UK"><img class="flag" src="assets/flags/es.svg" alt="" width="18" height="12" />Spanish</a>
+                <a class="book-buy" href="https://www.amazon.co.uk/dp/1065507569" rel="noopener" target="_blank" aria-label="English and French edition on Amazon UK"><img class="flag" src="assets/flags/fr.svg" alt="" width="18" height="12" />French</a>
+              </div>
             </div>
           </div>
         </article>
         <article class="book-card" role="listitem">
-          <img src="assets/books/lovely-lon-9781065507512.jpg" alt="Cover of Lovely Lon and the Treasures of Japan" width="180" height="180" loading="lazy" />
-          <div>
-            <h3>Lovely Lon and the Treasures of Japan</h3>
-            <p>Picture book. Hardcover.</p>
-            <p class="book-note">Amazon UK, by edition:</p>
+          <img src="assets/books/lovely-lon-9781065507512.jpg" alt="Cover of Lovely Lon and the Treasures of Japan" width="400" height="400" loading="lazy" />
+          <div class="book-body">
+            <h3><span class="book-series">Lovely Lon and</span> The Treasures of Japan</h3>
             <div class="book-links">
-              <a class="book-buy" href="https://www.amazon.co.uk/dp/1065507518" rel="noopener" target="_blank">English–Japanese</a>
-              <a class="book-buy" href="https://www.amazon.co.uk/dp/1065507542" rel="noopener" target="_blank">English–Spanish</a>
-              <a class="book-buy" href="https://www.amazon.co.uk/dp/1065507577" rel="noopener" target="_blank">English–French</a>
+              <p class="book-bi-label"><img class="flag" src="assets/flags/gb.svg" alt="" width="18" height="12" />Bilingual: English +</p>
+              <div class="book-bi">
+                <a class="book-buy" href="https://www.amazon.co.uk/dp/1065507518" rel="noopener" target="_blank" aria-label="English and Japanese edition on Amazon UK"><img class="flag" src="assets/flags/jp.svg" alt="" width="18" height="12" />Japanese</a>
+                <a class="book-buy" href="https://www.amazon.co.uk/dp/1065507542" rel="noopener" target="_blank" aria-label="English and Spanish edition on Amazon UK"><img class="flag" src="assets/flags/es.svg" alt="" width="18" height="12" />Spanish</a>
+                <a class="book-buy" href="https://www.amazon.co.uk/dp/1065507577" rel="noopener" target="_blank" aria-label="English and French edition on Amazon UK"><img class="flag" src="assets/flags/fr.svg" alt="" width="18" height="12" />French</a>
+              </div>
             </div>
           </div>
         </article>
         <article class="book-card" role="listitem">
-          <img src="assets/books/lovely-lon-9781065507529.jpg" alt="Cover of Lovely Lon and the Secrets of Energy" width="180" height="180" loading="lazy" />
-          <div>
-            <h3>Lovely Lon and the Secrets of Energy</h3>
-            <p>Picture book. Hardcover.</p>
-            <p class="book-note">Amazon UK, by edition:</p>
+          <img src="assets/books/lovely-lon-9781065507529.jpg" alt="Cover of Lovely Lon and the Secrets of Energy" width="400" height="400" loading="lazy" />
+          <div class="book-body">
+            <h3><span class="book-series">Lovely Lon and</span> The Secrets of Energy</h3>
             <div class="book-links">
-              <a class="book-buy" href="https://www.amazon.co.uk/dp/1065507526" rel="noopener" target="_blank">English–Japanese</a>
-              <a class="book-buy" href="https://www.amazon.co.uk/dp/1065507550" rel="noopener" target="_blank">English–Spanish</a>
-              <a class="book-buy" href="https://www.amazon.co.uk/dp/1065507585" rel="noopener" target="_blank">English–French</a>
+              <p class="book-bi-label"><img class="flag" src="assets/flags/gb.svg" alt="" width="18" height="12" />Bilingual: English +</p>
+              <div class="book-bi">
+                <a class="book-buy" href="https://www.amazon.co.uk/dp/1065507526" rel="noopener" target="_blank" aria-label="English and Japanese edition on Amazon UK"><img class="flag" src="assets/flags/jp.svg" alt="" width="18" height="12" />Japanese</a>
+                <a class="book-buy" href="https://www.amazon.co.uk/dp/1065507550" rel="noopener" target="_blank" aria-label="English and Spanish edition on Amazon UK"><img class="flag" src="assets/flags/es.svg" alt="" width="18" height="12" />Spanish</a>
+                <a class="book-buy" href="https://www.amazon.co.uk/dp/1065507585" rel="noopener" target="_blank" aria-label="English and French edition on Amazon UK"><img class="flag" src="assets/flags/fr.svg" alt="" width="18" height="12" />French</a>
+              </div>
             </div>
           </div>
         </article>
         <article class="book-card" role="listitem">
-          <img src="assets/books/lovely-lon-9781995858005.jpg" alt="Cover of Lovely Lon and the Great British Inventions" width="180" height="180" loading="lazy" />
-          <div>
-            <h3>Lovely Lon and the Great British Inventions</h3>
-            <p>Picture book. Hardcover.</p>
-            <p class="book-note">Amazon UK, by edition:</p>
+          <img src="assets/books/lovely-lon-9781995858005.jpg" alt="Cover of Lovely Lon and the Great British Inventions" width="400" height="400" loading="lazy" />
+          <div class="book-body">
+            <h3><span class="book-series">Lovely Lon and</span> The Great British Inventions</h3>
             <div class="book-links">
-              <a class="book-buy" href="https://www.amazon.co.uk/dp/1995858005" rel="noopener" target="_blank">English–Japanese</a>
-              <a class="book-buy" href="https://www.amazon.co.uk/dp/1995858161" rel="noopener" target="_blank">English–Spanish</a>
-              <a class="book-buy" href="https://www.amazon.co.uk/dp/199585817X" rel="noopener" target="_blank">English–French</a>
+              <p class="book-bi-label"><img class="flag" src="assets/flags/gb.svg" alt="" width="18" height="12" />Bilingual: English +</p>
+              <div class="book-bi">
+                <a class="book-buy" href="https://www.amazon.co.uk/dp/1995858005" rel="noopener" target="_blank" aria-label="English and Japanese edition on Amazon UK"><img class="flag" src="assets/flags/jp.svg" alt="" width="18" height="12" />Japanese</a>
+                <a class="book-buy" href="https://www.amazon.co.uk/dp/1995858161" rel="noopener" target="_blank" aria-label="English and Spanish edition on Amazon UK"><img class="flag" src="assets/flags/es.svg" alt="" width="18" height="12" />Spanish</a>
+                <a class="book-buy" href="https://www.amazon.co.uk/dp/199585817X" rel="noopener" target="_blank" aria-label="English and French edition on Amazon UK"><img class="flag" src="assets/flags/fr.svg" alt="" width="18" height="12" />French</a>
+              </div>
             </div>
           </div>
         </article>
         <article class="book-card" role="listitem">
-          <img src="assets/books/lovely-lon-9781995858012.jpg" alt="Cover of Lovely Lon and the World&#x27;s Most Successful People" width="180" height="180" loading="lazy" />
-          <div>
-            <h3>Lovely Lon and the World&#x27;s Most Successful People</h3>
-            <p>Picture book. Hardcover.</p>
-            <p class="book-note">Amazon UK, by edition:</p>
+          <img src="assets/books/lovely-lon-9781995858012.jpg" alt="Cover of Lovely Lon and the World&#x27;s Most Successful People" width="400" height="400" loading="lazy" />
+          <div class="book-body">
+            <h3><span class="book-series">Lovely Lon and</span> The World&#x27;s Most Successful People</h3>
             <div class="book-links">
-              <a class="book-buy" href="https://www.amazon.co.uk/dp/1995858013" rel="noopener" target="_blank">English–Japanese</a>
-              <a class="book-buy" href="https://www.amazon.co.uk/dp/1995858188" rel="noopener" target="_blank">English–Spanish</a>
-              <a class="book-buy" href="https://www.amazon.co.uk/dp/1995858196" rel="noopener" target="_blank">English–French</a>
+              <p class="book-bi-label"><img class="flag" src="assets/flags/gb.svg" alt="" width="18" height="12" />Bilingual: English +</p>
+              <div class="book-bi">
+                <a class="book-buy" href="https://www.amazon.co.uk/dp/1995858013" rel="noopener" target="_blank" aria-label="English and Japanese edition on Amazon UK"><img class="flag" src="assets/flags/jp.svg" alt="" width="18" height="12" />Japanese</a>
+                <a class="book-buy" href="https://www.amazon.co.uk/dp/1995858188" rel="noopener" target="_blank" aria-label="English and Spanish edition on Amazon UK"><img class="flag" src="assets/flags/es.svg" alt="" width="18" height="12" />Spanish</a>
+                <a class="book-buy" href="https://www.amazon.co.uk/dp/1995858196" rel="noopener" target="_blank" aria-label="English and French edition on Amazon UK"><img class="flag" src="assets/flags/fr.svg" alt="" width="18" height="12" />French</a>
+              </div>
             </div>
           </div>
         </article>
         <article class="book-card" role="listitem">
-          <img src="assets/books/lovely-lon-9781995858029.jpg" alt="Cover of Lovely Lon and How the World Works" width="180" height="180" loading="lazy" />
-          <div>
-            <h3>Lovely Lon and How the World Works</h3>
-            <p>Picture book. Hardcover.</p>
-            <p class="book-note">Amazon UK, by edition:</p>
+          <img src="assets/books/lovely-lon-9781995858029.jpg" alt="Cover of Lovely Lon and How the World Works" width="400" height="400" loading="lazy" />
+          <div class="book-body">
+            <h3><span class="book-series">Lovely Lon and</span> How the World Works</h3>
             <div class="book-links">
-              <a class="book-buy" href="https://www.amazon.co.uk/dp/1995858021" rel="noopener" target="_blank">English–Japanese</a>
-              <a class="book-buy" href="https://www.amazon.co.uk/dp/199585820X" rel="noopener" target="_blank">English–Spanish</a>
-              <a class="book-buy" href="https://www.amazon.co.uk/dp/1995858218" rel="noopener" target="_blank">English–French</a>
+              <p class="book-bi-label"><img class="flag" src="assets/flags/gb.svg" alt="" width="18" height="12" />Bilingual: English +</p>
+              <div class="book-bi">
+                <a class="book-buy" href="https://www.amazon.co.uk/dp/1995858021" rel="noopener" target="_blank" aria-label="English and Japanese edition on Amazon UK"><img class="flag" src="assets/flags/jp.svg" alt="" width="18" height="12" />Japanese</a>
+                <a class="book-buy" href="https://www.amazon.co.uk/dp/199585820X" rel="noopener" target="_blank" aria-label="English and Spanish edition on Amazon UK"><img class="flag" src="assets/flags/es.svg" alt="" width="18" height="12" />Spanish</a>
+                <a class="book-buy" href="https://www.amazon.co.uk/dp/1995858218" rel="noopener" target="_blank" aria-label="English and French edition on Amazon UK"><img class="flag" src="assets/flags/fr.svg" alt="" width="18" height="12" />French</a>
+              </div>
             </div>
           </div>
         </article>
         <article class="book-card" role="listitem">
-          <img src="assets/books/lovely-lon-9781065507598.jpg" alt="Cover of Lovely Lon and the AIUEO of Science" width="180" height="180" loading="lazy" />
-          <div>
-            <h3>Lovely Lon and the AIUEO of Science</h3>
-            <p>Picture book. Hardcover.</p>
-            <p class="book-note">Amazon UK, by edition:</p>
+          <img src="assets/books/lovely-lon-9781065507598.jpg" alt="Cover of Lovely Lon and the AIUEO of Science" width="400" height="400" loading="lazy" />
+          <div class="book-body">
+            <h3><span class="book-series">Lovely Lon and</span> The AIUEO of Science</h3>
             <div class="book-links">
-              <a class="book-buy" href="https://www.amazon.co.uk/dp/1065507593" rel="noopener" target="_blank">English–Japanese</a>
+              <p class="book-bi-label"><img class="flag" src="assets/flags/gb.svg" alt="" width="18" height="12" />Bilingual: English +</p>
+              <div class="book-bi">
+                <a class="book-buy" href="https://www.amazon.co.uk/dp/1065507593" rel="noopener" target="_blank" aria-label="English and Japanese edition on Amazon UK"><img class="flag" src="assets/flags/jp.svg" alt="" width="18" height="12" />Japanese</a>
+              </div>
             </div>
           </div>
         </article>
-        <article class="book-card" role="listitem">
+        </div>
+        <div class="books-other" role="list">
+        <article class="book-wide" role="listitem">
           <img src="assets/books/the-forex-foundations.jpg" alt="Cover of The Forex Foundations: Mastering the Basics of Currency Trading" width="116" height="180" loading="lazy" />
           <div>
             <h3>The Forex Foundations: Mastering the Basics of Currency Trading</h3>
             <p>Published 2025. Paperback.</p>
-                        <div class="book-links">
+            <div class="book-links">
               <a class="book-buy" href="https://www.amazon.co.uk/dp/1917329636" rel="noopener" target="_blank">Buy on Amazon UK</a>
             </div>
           </div>
         </article>
+        </div>
         <!-- BOOKS:END -->
       </div>
     </div>
